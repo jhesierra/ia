@@ -55,7 +55,7 @@ function bfs(inicio, oro){
 		nodes.update([{id:actual[0], color:{background:'red'}}]);
 		sleep(1000)
 		console.log(`Movimiento ${mov}: nodo visitado -> ${actual[0]}  ${actual[1]} \n`)
-		div.innerHTML = div.innerHTML + `Movimiento ${mov}: nodo visitado -> ${actual[0]}  ${actual[1]} \n`;
+		div.innerHTML = div.innerHTML + `Movimiento ${mov}: nodo visitado -> ${actual[0]}  ${actual[1]} <br>`;
 		if(actual[1] == 1){
 		nodes.update([{id:actual[0], color:{background:'blue'}}]);
 			return actual[0]
@@ -109,11 +109,11 @@ for(var i = 0; i < M; i++){
 var respuesta = bfs(inicio, inicio_oro)
 if(respuesta == -1){
 	console.log("No encontre oro \n")	
-	div.innerHTML = div.innerHTML + "No encontre oro \n";
+	div.innerHTML = div.innerHTML + "No encontre oro <br>";
 } 
 else{ 
 	console.log(`Encontre oro en el nodo: ${respuesta}\n`)
-	div.innerHTML = div.innerHTML + `Encontre oro en el nodo: ${respuesta}\n`;
+	div.innerHTML = div.innerHTML + `Encontre oro en el nodo: ${respuesta}<br>`;
 }
 
 

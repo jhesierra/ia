@@ -54,7 +54,7 @@ function bfs(inicio, oro){
 		var actual = q.shift()
 		nodes.update([{id:actual[0], color:{background:'red'}}]);
 		sleep(1000)
-		console.log(`Movimiento ${mov}: nodo visitado -> ${actual[0]}  ${actual[1]} \n`)
+		console.log(`Movimiento ${mov++}: nodo visitado -> ${actual[0]}  ${actual[1]} \n`)
 		div.innerHTML = div.innerHTML + `Movimiento ${mov}: nodo visitado -> ${actual[0]}  ${actual[1]} <br>`;
 		if(actual[1] == 1){
 		nodes.update([{id:actual[0], color:{background:'blue'}}]);

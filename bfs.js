@@ -30,7 +30,7 @@ var data = {
         edges: edges
     };
 var network = new vis.Network(container, data, {});
-
+var div = document.getElementById('resultados');
 
 //
 function sleep(milliseconds) {
@@ -49,11 +49,13 @@ function bfs(inicio, oro){
 	q.push(new Array(inicio, oro))
 	visitados[inicio] = 1
 	var mov = 0
+	
 	while(q.legth != 0){
 		var actual = q.shift()
 		nodes.update([{id:actual[0], color:{background:'red'}}]);
 		sleep(1000)
 		console.log(`Movimiento ${mov}: nodo visitado -> ${actual[0]}  ${actual[1]} \n`)
+		div.innerHTML = div.innerHTML + `Movimiento ${mov}: nodo visitado -> ${actual[0]}  ${actual[1]} \n`;
 		if(actual[1] == 1){
 		nodes.update([{id:actual[0], color:{background:'blue'}}]);
 			return actual[0]
@@ -105,8 +107,14 @@ for(var i = 0; i < M; i++){
 
 //sleep(2000)
 var respuesta = bfs(inicio, inicio_oro)
-if(respuesta == -1) console.log("No encontre oro \n")
-else console.log(`Encontre oro en el nodo: ${respuesta}\n`)
+if(respuesta == -1){
+	console.log("No encontre oro \n")	
+	div.innerHTML = div.innerHTML + "No encontre oro \n";
+} 
+else{ 
+	console.log(`Encontre oro en el nodo: ${respuesta}\n`)
+	div.innerHTML = div.innerHTML + `Encontre oro en el nodo: ${respuesta}\n`;
+}
 
 
 
